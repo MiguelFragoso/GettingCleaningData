@@ -8,7 +8,7 @@ This project used data collected from the accelerometers from the Samsung Galaxy
 
 ## Summary
 
-The goal is to prepare tidy data that can be used for later analysis, and the end result is shown in the file *tidy.txt*.  
+The goal is to prepare tidy data that can be used for later analysis, and the end result is the file *tidyDataSet.txt*.  
 I had created a R script called *run_analysis.R* that does the following:  
 
 1. Download the dataset if it does not already exist in the working directory  
