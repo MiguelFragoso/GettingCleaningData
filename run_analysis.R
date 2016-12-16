@@ -65,5 +65,5 @@ DS$activity <- factor(DS$activity, levels = activityLabels[, "V1"], labels = act
 tidyDataSet <- melt(DS, id = c("subject", "activity"))
 tidyDataSet <- dcast(tidyDataSet, subject + activity ~ variable, mean)
 
-# Export the tidy Data Set in csv format
-write.csv(tidyDataSet, "tidyDataSet.csv", row.names = FALSE)
+# Export the tidy Data Set in txt file format
+write.table(tidyDataSet, "tidyDataSet.txt", row.names = FALSE)

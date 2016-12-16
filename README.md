@@ -19,7 +19,7 @@ I had created a R script called *run_analysis.R* that does the following:
 6. Merges the two datasets  
 7. Converts the activity and subject columns into factors  
 8. Creates a independent tidy data set with the average of each variable for each activity and each subject
-9. Export the tidy data set in a csv format file
+9. Export the tidy data set in a txt file format
 
 ## Code Book
 
