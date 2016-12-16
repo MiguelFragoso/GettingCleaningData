@@ -2,7 +2,7 @@ library(reshape2) # Flexibly restructure and aggregate data using two functions 
 
 fileName <- "getdata_dataset.zip" # Data for the project
 if (!file.exists(fileName)) { # Download and unzip the dataset if it does not already exist
-	fileURL <- "https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip "
+	fileURL <- "https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip"
 	download.file(fileURL, fileName)
 }
 if (!file.exists("UCI HAR Dataset")) { # Unzip the dataset if it does not already exist
@@ -52,18 +52,16 @@ testDS <- cbind(testSubjects, testActivities, testDS)
 # Merges the training and the test sets to create one data set
 DS <- rbind(trainDS, testDS)
 
-#Appropriately labels the data set with descriptive variable names
+# Appropriately labels the data set with descriptive variable names
 colnames(DS) <- c("subject", "activity", featuresExtractNames) # Add labels
 
 # Transform subject variable into a factor
 DS$subject <- as.factor(DS$subject)
 
 # Transform activity variable into a factor
-DS$activity <- factor(DS$activity, levels = activityLabels[, "V1"],
-					  			   labels = activityLabels[, "V2"])
+DS$activity <- factor(DS$activity, levels = activityLabels[, "V1"], labels = activityLabels[, "V2"])
 
-# Create another independent tidy data set with the average of each variable
-# for each activity and each subject.
+# Create another independent tidy data set with the average of each variable for each activity and each subject.
 tidyDataSet <- melt(DS, id = c("subject", "activity"))
 tidyDataSet <- dcast(tidyDataSet, subject + activity ~ variable, mean)
 
